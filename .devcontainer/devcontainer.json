@@ -1,0 +1,24 @@
+{
+  "$schema": "https://raw.githubusercontent.com/devcontainers/spec/main/schemas/devContainer.schema.json",
+  "name": "monorepo",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "github.copilot-chat",
+        "github.vscode-pull-request-github",
+        "nrwl.angular-console"
+      ]
+    }
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/node": {
+      "version": "20.12.1"
+    },
+    "ghcr.io/devcontainers-contrib/features/pnpm": {
+      "version": "8.15.6"
+    },
+    "ghcr.io/balazs23/devcontainers-features/nx": {
+      "version": "18.2.1"
+    }
+  }
+}

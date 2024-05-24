@@ -1,0 +1,87 @@
+{
+  "$schema": "https://json.schemastore.org/package.json",
+  "name": "@jhasuraj01/cli-app",
+  "version": "0.0.0",
+  "description": "Sample CLI Application",
+  "type": "module",
+  "types": "./dist/index.d.ts",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "bin": {
+    "jhasuraj01-cli-app": "./bin/run.js"
+  },
+  "exports": "./dist/index.js",
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "clear": "rimraf data dist tsconfig.tsbuildinfo",
+    "clear:all": "rimraf data dist tsconfig.tsbuildinfo node_modules *.tmp.*",
+    "build": "tsc -b",
+    "postbuild": "chmod +x ./bin/run.js",
+    "dev": "tsc --watch",
+    "lint": "eslint ./src/**/* ./test/**/* --ext .ts,js --fix",
+    "lint:check": "eslint ./src/**/* ./test/**/* --ext .ts,js",
+    "format": "prettier ./src/**/* ./test/**/* --write",
+    "format:check": "prettier ./src/**/* ./test/**/* --check",
+    "postpack": "rimraf oclif.manifest.json",
+    "posttest": "pnpm run lint",
+    "prepack": "pnpm run build && oclif manifest && oclif readme",
+    "test": "chmod +x ./bin/dev.js && vitest run",
+    "test:dev": "vitest dev",
+    "typecheck:src": "tsc -p ./tsconfig.json --noEmit",
+    "typecheck:test": "tsc -p ./test/tsconfig.json --noEmit",
+    "version": "oclif readme && git add README.md"
+  },
+  "dependencies": {
+    "@jhasuraj01/hello": "workspace:*",
+    "@jhasuraj01/tsconfig": "workspace:*",
+    "@oclif/core": "^3.26.6",
+    "@oclif/plugin-help": "^6.0.22",
+    "@oclif/plugin-plugins": "^4.3.10",
+    "rimraf": "5.0.5"
+  },
+  "devDependencies": {
+    "@jhasuraj01/eslint-config": "workspace:^",
+    "@jhasuraj01/prettier-config": "workspace:*",
+    "@oclif/prettier-config": "^0.2.1",
+    "@types/node": "^20.12.12",
+    "eslint": "^8.57.0",
+    "eslint-config-oclif": "^5.2.0",
+    "eslint-config-oclif-typescript": "^3.1.7",
+    "execa": "^8.0.1",
+    "oclif": "^4.11.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5",
+    "vitest": "^1.6.0"
+  },
+  "keywords": [],
+  "author": {
+    "email": "contact@jhasuraj.com",
+    "name": "Suraj Jha",
+    "url": "https://jhasuraj.com"
+  },
+  "contributors": [],
+  "engineStrict": true,
+  "packageManager": "pnpm@8.15.8",
+  "prettier": "@jhasuraj01/prettier-config",
+  "files": [
+    "/bin",
+    "/dist",
+    "/oclif.manifest.json"
+  ],
+  "oclif": {
+    "bin": "jhasuraj01-cli-app",
+    "commands": "./dist/commands",
+    "dirname": "jhasuraj01-cli-app",
+    "plugins": [
+      "@oclif/plugin-help",
+      "@oclif/plugin-plugins"
+    ],
+    "topics": {
+      "speak": {
+        "description": "Say hello to the world and others"
+      }
+    },
+    "topicSeparator": " "
+  },
+  "nx": {}
+}

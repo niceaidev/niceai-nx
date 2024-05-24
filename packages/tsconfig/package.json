@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json.schemastore.org/package.json",
+  "name": "@jhasuraj01/tsconfig",
+  "version": "0.0.0",
+  "description": "Default Typescript Configuration for Packages",
+  "type": "module",
+  "main": "./tsconfig.json",
+  "module": "./tsconfig.json",
+  "bin": "./tsconfig.json",
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "clear": "rimraf dist",
+    "clear:all": "rimraf dist node_modules"
+  },
+  "keywords": [],
+  "author": {
+    "email": "contact@jhasuraj.com",
+    "name": "Suraj Jha",
+    "url": "https://jhasuraj.com"
+  },
+  "contributors": [],
+  "license": "MIT",
+  "engineStrict": true,
+  "packageManager": "pnpm@8.15.8",
+  "devDependencies": {
+    "rimraf": "^5.0.7",
+    "typescript": "^5.4.5"
+  },
+  "nx": {}
+}
